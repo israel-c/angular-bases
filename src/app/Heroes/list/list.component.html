@@ -1,0 +1,23 @@
+
+ <h1 id="h1">HEROES LIST</h1>
+
+
+ <div  *ngIf="activeDiv; else template">
+    <h3 >Was deleted...</h3>
+    <span>{{deleted}}</span>
+</div>
+<ng-template #template>
+    <h3 ><span>Nothing deleted</span></h3>
+</ng-template>
+
+<br>
+<button #disableB disabled="true"  (click)="deleteElement(disableB)" >Delete selected</button>
+<div>
+    <ul>
+    <li  *ngFor="let item of heroes; let i = index" >
+    <input #inputR type="radio" name="heroes" id={{i}} (click)="sendId( inputR, disableB)" required="true">
+     <label for={{i}}> {{item}}</label>
+    </li>
+    </ul>
+</div>
+
